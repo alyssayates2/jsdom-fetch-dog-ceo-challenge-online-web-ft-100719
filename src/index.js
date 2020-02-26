@@ -43,7 +43,6 @@ function addBreed(message) {
     }
 }
 
-let Breeds = document.querySelectorAll('li')
 
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -53,9 +52,15 @@ document.addEventListener("DOMContentLoaded", function() {
 })
 
 function filterBreeds(e) {
+    let breeds = document.querySelectorAll('li')
     console.log('getting dogs starting with' + " " + e.target.value)
-    for(let i = 0; i < Breeds; i++){
-        Breeds[i].startsWith(e.target.value)
+    for(let i = 0; i < breeds.length; i++){
+        if (breeds[i].innerText.startsWith(e.target.value)) {
+            breeds[i].style.display = "block"
+        } else {
+            breeds[i].style.display = "none"
+        }
+
     }
 }
 
